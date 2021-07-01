@@ -8,9 +8,10 @@
 import UIKit
 
 
-class ToDo {
+class Schedule {
     var name = ""
     var important = false
+    var time = ""
 }
  
 

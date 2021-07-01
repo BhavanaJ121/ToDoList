@@ -1,50 +1,19 @@
 //
-//  ToDoTableViewController.swift
-//  ToDoList
-//
+
 //  Created by Bhavana Jayanth on 6/28/21.
 //
 
 import UIKit
 
-class ToDoTableViewController: UITableViewController {
+class ScheduleTableViewController: UITableViewController {
     
-    var toDos : [ToDo] = []
+    var schedules : [ScheduleCD] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        toDos = createToDos()
     }
-    /*
-    func createToDos() -> [ToDo] {
-        
-        let swift = ToDo(name: "Learn Swift", important: true)
-        //swift.name = "Learn Swift"
-        //swift.important = true
-        
-        let dog = ToDo(name: "Walk the Dog", important: false)
-        //dog.name = "Walk the Dog"
-        //important is false by default
-        
-        return [swift, dog]
-        
-    }
- */
-    func createToDos() -> [ToDo] {
-        
-        let swift = ToDo()
-      swift.name = "Learn Swift"
-      swift.important = true
-
-      let dog = ToDo()
-      dog.name = "Walk the Dog"
-      // important is set to false by default
-
-      return [swift, dog]
-    }
-    // MARK: - Table view data source
-
+ 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -52,17 +21,17 @@ class ToDoTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return toDos.count
+        return schedules.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        let toDo  = toDos[indexPath.row]
+        let schedule  = schedules[indexPath.row]
         
-        if toDo.important {
-            cell.textLabel?.text = "❗️" + toDo.name
+        if schedule.taskimportant {
+            cell.textLabel?.text = "❗️" + schedule.time! + " " + schedule.taskname!
         } else {
-            cell.textLabel?.text = toDo.name
+            cell.textLabel?.text = schedule.time! + " " + schedule.taskname!
         }
         // Configure the cell...
 
@@ -70,12 +39,26 @@ class ToDoTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let toDo = toDos[indexPath.row]
+        let schedule = schedules[indexPath.row]
         
-        performSegue(withIdentifier: "moveToComplete", sender: toDo)
+        performSegue(withIdentifier: "moveToComplete", sender: schedule)
     }
 
+    func getSchedules() {
+     if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
 
+        if let coreDataschedules = try? context.fetch(ScheduleCD.fetchRequest()) as? [ScheduleCD] {
+                schedules = coreDataschedules
+                tableView.reloadData()
+        }
+      }
+    }
+        
+    
+    override func viewWillAppear(_ animated: Bool) {
+      getSchedules()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -112,21 +95,20 @@ class ToDoTableViewController: UITableViewController {
     */
 
 
-    // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if let addVC = segue.destination as? AddToDoViewController {
+        if let addVC = segue.destination as? AddScheduleViewController {
             addVC.previousVC = self
         }
         
-        if let completeVC = segue.destination as? CompleteToDoViewController {
-            if let toDo = sender as? ToDo {
-                completeVC.selectedToDo = toDo
+        if let completeVC = segue.destination as? RemoveScheduleViewController {
+            if let schedule = sender as? ScheduleCD {
+                completeVC.selectedSchedule = schedule
                 completeVC.previousVC = self
             }
         }
     }
 
 }
+

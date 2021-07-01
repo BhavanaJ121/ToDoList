@@ -7,20 +7,26 @@
 
 import UIKit
 
-class CompleteToDoViewController: UIViewController {
-    var previousVC = ToDoTableViewController()
-    var selectedToDo = ToDo()
+class RemoveScheduleViewController: UIViewController {
+    var previousVC = ScheduleTableViewController()
+    var selectedSchedule : ScheduleCD?
 
     @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = selectedToDo.name
+        titleLabel.text = selectedSchedule?.taskname
         // Do any additional setup after loading the view.
     }
-    @IBAction func completeTapped(_ sender: Any) {
-        
-    }
     
+    @IBAction func completeTapped(_ sender: Any) {
+          if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let theSchedule = selectedSchedule {
+              context.delete(theSchedule)
+              navigationController?.popViewController(animated: true)
+            }
+          }
+        }
+
 
     /*
     // MARK: - Navigation

@@ -15,7 +15,7 @@
 		831124F5268A4ED400C81104 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 831124F3268A4ED400C81104 /* LaunchScreen.storyboard */; };
 		831124FD268A511A00C81104 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831124FC268A511A00C81104 /* ToDoTableViewController.swift */; };
 		831124FF268A51E900C81104 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831124FE268A51E900C81104 /* ToDo.swift */; };
-		83112501268B715A00C81104 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83112500268B715A00C81104 /* AddToDoViewController.swift */; };
+		83112501268B715A00C81104 /* AddScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83112500268B715A00C81104 /* AddScheduleViewController.swift */; };
 		83112589268BD2CC00C81104 /* CompleteToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83112588268BD2CC00C81104 /* CompleteToDoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		831124F6268A4ED400C81104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		831124FC268A511A00C81104 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		831124FE268A51E900C81104 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		83112500268B715A00C81104 /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
+		83112500268B715A00C81104 /* AddScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleViewController.swift; sourceTree = "<group>"; };
 		83112588268BD2CC00C81104 /* CompleteToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToDoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +64,7 @@
 		831124E4268A4ECF00C81104 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				83112500268B715A00C81104 /* AddToDoViewController.swift */,
+				83112500268B715A00C81104 /* AddScheduleViewController.swift */,
 				831124E5268A4ECF00C81104 /* AppDelegate.swift */,
 				831124E7268A4ECF00C81104 /* SceneDelegate.swift */,
 				831124EB268A4ECF00C81104 /* Main.storyboard */,
@@ -154,7 +154,7 @@
 				831124FD268A511A00C81104 /* ToDoTableViewController.swift in Sources */,
 				83112589268BD2CC00C81104 /* CompleteToDoViewController.swift in Sources */,
 				831124E8268A4ECF00C81104 /* SceneDelegate.swift in Sources */,
-				83112501268B715A00C81104 /* AddToDoViewController.swift in Sources */,
+				83112501268B715A00C81104 /* AddScheduleViewController.swift in Sources */,
 				831124F0268A4ECF00C81104 /* ToDoList.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -287,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
